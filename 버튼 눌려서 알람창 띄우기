@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+</head>
+<body>
+
+    <h1>함수를 변수에 저장하고, 인자로 전달할 수 있음</h1>
+    <hr>
+
+    <p><button>짱구</button></p>
+    <p><button>유리</button></p>
+    <p><button>훈이</button></p>
+    <p><button>철수</button></p>
+    <p><button>맹구</button></p>
+    
+    <script>
+        // 포함 관계와 상관없이 button태그요소만 불러 올 수 있다.
+        const buttonList = document.querySelectorAll('button')
+        // all은 원래 foreach만 가능한데 밑에 변환하면서 다 쓸 수 있음
+
+        // nodeList를 배열로 변환한다.
+        const arr = Array.from(buttonList)
+
+        const clickHandler = function(event){
+            alert(event.target.innerText) // event.target :  클릭당한 대상 , innerText : 시작 태그와 끝 태그 사이에 있는 텍스트
+        }
+
+        arr.forEach(e => e.onclick = clickHandler)
+        // , 배열 arr의 각 요소가 클릭될 때마다 clickHandler 함수가 실행되도록 이벤트 핸들러가 등록
+        // 버튼 클릭할 때마다 이름 출력
+    </script>
+    
+</body>
+</html>
