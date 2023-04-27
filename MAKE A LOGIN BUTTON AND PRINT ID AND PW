@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>ex02.html</h1>
+    <hr>
+    <div class="form">
+        <p><input type="text" name ="id" placeholder="아이디"></p>
+        <p><input type="password" name ="pw" placeholder="비밀번호"></p>
+        <p><input type="submit"></p>
+    </div>
+
+    <div class="result"></div>
+
+    <script>
+        // 버튼 클릭 이벤트 
+        const submit = document.querySelector('input[type="submit"]')
+
+        // submit을 click하면 함수가 실행된다.
+        submit.onclick = function(){//ubmit 버튼이 클릭되었을 때 실행할 함수를 등록합니다.
+           // alert('버튼 클릭 !!')
+            const inputId = document.querySelector('input[name="id"]')
+            // 이름이 "id"인 input 요소를 찾아서 inputId 변수에 할당
+            const inputPw = document.querySelector('input[name="pw"]')
+            const idText = inputId.value 
+            // inputId 요소의 value 값을 가져와서 idText 변수에 할당
+            const pwText = inputPw.value
+
+            const result = document.querySelector('div.result')
+            // 클래스명이 "result"인 div 요소를 찾아서 result 변수에 할당
+
+            result.innerHTML += '<p>입력한 아이디 : ' + idText + '</p>'
+            // result 요소의 innerHTML 속성에 입력한 아이디를 포함하는 p 태그를 추가 (f12로 확인하면서 보기)
+            result.innerHTML += '<p>입력한 비밀번호 : ' + pwText + '</p>'
+            
+
+            result.style.border = '5px solid red'
+            result.style.backgroundColor = 'yellow'
+            result.style.padding = '20px'
+        }
+        </script>
+
+    
+</body>
+</html>
