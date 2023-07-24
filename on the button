@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*선택자를 상세하게 작성할 수록 우선순위가 높아진다.*/
+        #img {
+            transition-duration: 0.5s;
+            opacity: 1;  /*투명도:1*/  
+            /*실제 이벤트에 사용된거 이 2개 뿐 , 밑엔 꾸며주는거*/
+
+
+            position: absolute;
+            top : 50%;
+            left : 50%;
+            transform : translate(-50%, -50%);  /*화면 가운데 그림두고 싶을때 위 세개 쓴다. top~ transform*/
+            z-index: -1; /*그림이 버튼을 가리기 때문에 써줘야함*/
+        }
+        #img.hidden{    /*id가 img이면서 hidden인거 */
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>ex08.html</h1>
+    <hr>
+
+    <h3>버튼에 마우스를 올리면 그림이 나타나는 예제</h3>
+
+     <p align="center">
+        <button id ="btn">버튼</button>
+     </p>
+
+     <img class="hidden" id="img" src="눕콩.png" width="1200px">
+
+
+     <script>
+        const btn = document.getElementById('btn')
+        const img = document.getElementById('img')
+
+        btn.onmouseover = event => {img.classList.remove('hidden')} /*매개변수(event) 하나이면 () 생략할 수 있다. */
+        btn.onmouseout = () => img.classList.add('hidden') /* arrowfunction : 람다식 처럼 {} 생략 가능*/
+        // btn.onmouseout = event => img.classList.add('hidden') -- 선생님은 둘 다 이렇게 씀
+     </script>
+
+</body>
+</html>
